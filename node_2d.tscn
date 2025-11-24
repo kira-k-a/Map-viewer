@@ -1,0 +1,329 @@
+[gd_scene load_steps=16 format=3 uid="uid://je3g2xc6m18u"]
+
+[ext_resource type="Script" uid="uid://cj4dedifcyyi1" path="res://map_viewer.gd" id="1_5xrfr"]
+[ext_resource type="Texture2D" uid="uid://cbr3s7dexvpa1" path="res://png/glass-png.png" id="2_18oak"]
+[ext_resource type="Texture2D" uid="uid://dqprpdw1puqav" path="res://png/mark.png" id="3_dfs70"]
+[ext_resource type="Texture2D" uid="uid://b00x7fk4etbgo" path="res://png/star.png" id="3_jxlra"]
+[ext_resource type="Texture2D" uid="uid://cyklrjpuy6t48" path="res://png/plane_m.png" id="5_j6tbk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duyvp"]
+bg_color = Color(0, 0, 0, 0.580392)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuek5"]
+bg_color = Color(0, 0, 0, 0.580392)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m48t4"]
+bg_color = Color(0, 0, 0, 0.580392)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v3ko"]
+bg_color = Color(0, 0, 0, 0.454902)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8ulu"]
+bg_color = Color(0, 0, 0, 0.454902)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtf6s"]
+bg_color = Color(0, 0, 0, 0.580392)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjm5h"]
+bg_color = Color(0, 0, 0, 0.580392)
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="Animation" id="Animation_xi8uf"]
+resource_name = "move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:ax")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:ay")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:az")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wrsck"]
+_data = {
+&"move": SubResource("Animation_xi8uf")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ekxs"]
+content_margin_left = 2.0
+content_margin_top = 7.0
+content_margin_right = 2.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.580392)
+
+[node name="Control" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5xrfr")
+
+[node name="ZoomLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_duyvp")
+
+[node name="DistanceLabel_m" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 198.0
+offset_right = 123.0
+offset_bottom = 221.0
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_tuek5")
+text = " Distance (m):"
+
+[node name="DistanceLabel_km" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 230.0
+offset_right = 139.0
+offset_bottom = 254.0
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_m48t4")
+text = " Distance (km):"
+
+[node name="x_input" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1576.0
+offset_top = -56.0
+offset_right = -1488.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 0
+placeholder_text = "YY.YY"
+alignment = 1
+
+[node name="y_input" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1576.0
+offset_top = -96.0
+offset_right = -1488.0
+offset_bottom = -64.0
+placeholder_text = "XX.XX"
+alignment = 1
+virtual_keyboard_enabled = false
+
+[node name="MoveButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1480.0
+offset_top = -80.0
+offset_right = -1437.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("2_18oak")
+
+[node name="dotsx" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1400.0
+offset_top = -56.0
+offset_right = 1489.0
+offset_bottom = -25.0
+grow_vertical = 0
+placeholder_text = "YY.YY"
+alignment = 1
+
+[node name="dotsy" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1400.0
+offset_top = -96.0
+offset_right = 1488.0
+offset_bottom = -65.0
+grow_vertical = 0
+placeholder_text = "XX.XX"
+alignment = 1
+
+[node name="dotsloc" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1496.0
+offset_top = -88.0
+offset_right = 1576.0
+offset_bottom = -40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "Добавить
+метку"
+
+[node name="taggled" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1400.0
+offset_top = -296.0
+offset_right = 1576.0
+offset_bottom = -242.0
+grow_vertical = 0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8v3ko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8v3ko")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8v3ko")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s8ulu")
+text = "Ввод/удаление
+меток"
+alignment = 1
+
+[node name="nsew" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 56.0
+offset_right = 65.0
+offset_bottom = 79.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vtf6s")
+
+[node name="star" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1480.0
+offset_top = 568.0
+offset_right = 1573.0
+offset_bottom = 606.0
+text = "Метка"
+icon = ExtResource("3_jxlra")
+icon_alignment = 2
+
+[node name="point" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1480.0
+offset_top = 616.0
+offset_right = 1573.0
+offset_bottom = 654.0
+text = "Метка"
+icon = ExtResource("3_dfs70")
+icon_alignment = 2
+
+[node name="plane" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1480.0
+offset_top = 664.0
+offset_right = 1573.0
+offset_bottom = 702.0
+text = "Метка"
+icon = ExtResource("5_j6tbk")
+icon_alignment = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1352.0
+offset_top = 164.0
+offset_right = 1576.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_xjm5h")
+text = "Добавленные метки"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wrsck")
+}
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 1352.0
+offset_top = 192.0
+offset_right = 1576.0
+offset_bottom = 432.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ekxs")
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer2"]
+layout_mode = 2
+columns = 3
+
+[connection signal="text_changed" from="x_input" to="." method="_on_x_input_text_changed"]
+[connection signal="text_changed" from="y_input" to="." method="_on_y_input_text_changed"]
+[connection signal="pressed" from="MoveButton" to="." method="_on_move_button_pressed"]
+[connection signal="text_changed" from="dotsx" to="." method="_on_dotsx_text_changed"]
+[connection signal="text_changed" from="dotsy" to="." method="_on_dotsy_text_changed"]
+[connection signal="pressed" from="dotsloc" to="." method="_on_dotsloc_pressed"]
+[connection signal="mouse_entered" from="taggled" to="." method="_on_taggled_mouse_entered"]
+[connection signal="mouse_exited" from="taggled" to="." method="_on_taggled_mouse_exited"]
+[connection signal="pressed" from="star" to="." method="_on_star_pressed"]
+[connection signal="pressed" from="point" to="." method="_on_point_pressed"]
+[connection signal="pressed" from="plane" to="." method="_on_plane_pressed"]

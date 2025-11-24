@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfjys4k7psirh"]
+
+[ext_resource type="Texture2D" uid="uid://cyklrjpuy6t48" path="res://png/plane_m.png" id="1_je4bw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("1_je4bw")

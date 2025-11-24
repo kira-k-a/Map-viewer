@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c65s52xudu4tx"]
+
+[ext_resource type="Texture2D" uid="uid://b00x7fk4etbgo" path="res://png/star.png" id="1_kgw26"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("1_kgw26")
